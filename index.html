@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Видеонаблюдение</title>
+	<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="noindex">
+	<link rel="stylesheet" type="text/css" href="video.css">
+</head>
+
+<body>
+	<header>
+		<div class="logo">
+			<a href="index.html"></a>
+		</div>
+
+		<label for="menu" class="menu_icon"></label>
+		<input type="checkbox" id="menu">
+		<nav>
+			<ul>
+				<li>
+					<a href="#" class="active-event">События</a>
+				</li>
+				<li>
+					<a href="#">Сводка</a>
+				</li>
+				<li>
+					<a href="#">Устройства</a>
+				</li>
+				<li>
+					<a href="#">Сценарии</a>
+				</li>
+				<li>
+					<a href="video.html">Видеонаблюдение</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<div class="central-part">
+		<main>
+			<div class= "wrapper">
+				<div class="player">
+					<video id="video-1" class="video" muted="" autoplay=""></video>	
+					<div class="button" id="button-1">Все камеры</div>
+					<div class="display">
+						<div class="tools" class="values-brightness" id="values-brightness-1">Яркость: &nbsp; 50%</div>
+						<input type="range" min="0" max="200" step="1" value="100" class="brightness" id="brightness-1"> 
+						<br>
+						<div class="tools" class="values-contrast" id="values-contrast-1">Контраст: &nbsp; 50%</div>
+						<input type="range" min="0" max="500" step="1" value="250" class="contrast" id="contrast-1">
+					</div>
+				</div>	
+			</div>
+			<div class= "wrapper">
+				<div class="player">
+					<video id="video-2" class="video" muted="" autoplay=""></video>
+					<div class="button" id="button-2">Все камеры</div>
+					<div class="display">
+						<div class="tools" class="values-brightness" id="values-brightness-2">Яркость: &nbsp; 50%</div>
+						<input type="range" min="0" max="200" step="1" value="100" class="brightness" id="brightness-2"> 
+						<br>
+						<div class="tools" class="values-contrast" id="values-contrast-2">Контраст: &nbsp; 50%</div>
+						<input type="range" min="0" max="500" step="1" value="250" class="contrast" id="contrast-2">
+					</div>
+				</div>
+			</div>
+			<div class= "wrapper">
+				<div class="player">
+					<video id="video-3" class="video" muted="" autoplay=""></video>
+					<div class="button" id="button-3">Все камеры</div>
+					<div class="display">
+						<div class="tools" class="values-brightness" id="values-brightness-3">Яркость: &nbsp; 50%</div>
+						<input type="range" min="0" max="200" step="1" value="100" class="brightness" id="brightness-3"> 
+						<br>
+						<div class="tools" class="values-contrast" id="values-contrast-3">Контраст: &nbsp; 50%</div>
+						<input type="range" min="0" max="500" step="1" value="250" class="contrast" id="contrast-3">
+					</div>
+				</div>
+			</div>
+			<div class= "wrapper">
+				<div class="player">
+					<video id="video-4" class="video" muted="" autoplay=""></video>
+					<div class="button" id="button-4">Все камеры</div>
+					<div class="display">
+						<div class="tools" class="values-brightness" id="values-brightness-4">Яркость: &nbsp; 50%</div>
+						<input type="range" min="0" max="200" step="1" value="100" class="brightness" id="brightness-4"> 
+						<br>
+						<div class="tools" class="values-contrast" id="values-contrast-4">Контраст: &nbsp; 50%</div>
+						<input type="range" min="0" max="500" step="1" value="250" class="contrast" id="contrast-4">
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer>
+			<nav>
+				<ul>
+					<li>
+						<a href="#">Помощь</a>
+					</li>
+					<li>
+						<a href="#">Обратная связь</a>
+					</li>
+					<li>
+						<a href="#">Разработчикам</a>
+					</li>
+					<li>
+						<a href="#">Условия использования</a>
+					</li>
+				</ul>
+			</nav>
+			<p>© 2001-2018 ООО "Яндекс"</p>
+		</footer>
+	</div>
+	<script src="video.min.js"></script>
+</body>
+</html>
