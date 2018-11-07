@@ -1,1 +1,6 @@
-переименовала video.html -> index.html для ототбражения на gh-pages.
+Сборка:
+npm run build
+
+Запуск:
+npm install http-server -g
+http-server
