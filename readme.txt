@@ -1,0 +1,1 @@
+переименовала video.html -> index.html для ототбражения на gh-pages.
