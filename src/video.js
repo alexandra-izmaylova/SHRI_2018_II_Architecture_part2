@@ -4,35 +4,35 @@ import { Store } from './store.js';
 const dispatcher = new Dispatcher();
 
 class UserStore extends Store {
-	constructor(dispatcher, initialState) {
-		super(dispatcher, 'currentVideo', initialState);
-	}
+    constructor(dispatcher, initialState) {
+        super(dispatcher, 'currentVideo', initialState);
+    }
 
-	processPayload(state, payload) {
-		if(payload.action === 'expand') {
-			return payload.id;
-		}
-		if(payload.action === 'collapse') {
-			return null;
-		}
-		return state;
-	}
+    processPayload(state, payload) {
+        if(payload.action === 'expand') {
+            return payload.id;
+        }
+        if(payload.action === 'collapse') {
+            return null;
+        }
+        return state;
+    }
 }
 
 let expandedVideoId = localStorage.expandedVideoId;
 
 const userStore = new UserStore(dispatcher, expandedVideoId);
 userStore.addListener((videoId) => {
-	if (videoId) {
-		expandPlayer(document.getElementById(videoId));
-	} else {
-		collapsePlayer(document.getElementById(expandedVideoId));
-	}
-	expandedVideoId = videoId;
+    if (videoId) {
+        expandPlayer(document.getElementById(videoId));
+    } else {
+        collapsePlayer(document.getElementById(expandedVideoId));
+    }
+    expandedVideoId = videoId;
 });
 
 userStore.addListener((videoId) => {
-	localStorage.expandedVideoId = videoId;
+    localStorage.expandedVideoId = videoId;
 });
 
 function expandPlayer(video) {
@@ -65,39 +65,39 @@ function expandPlayer(video) {
 }
 
 function collapsePlayer(video) {
-	const element = video.parentElement;
-	if (!element.classList.contains('active')) return;
-	element.classList.remove('active');
-	const wrapper = element.parentElement;
-	const position = wrapper.getBoundingClientRect();
-	const size = {
-		width: window.getComputedStyle(wrapper).width,
-		height: window.getComputedStyle(wrapper).height
-	};
+    const element = video.parentElement;
+    if (!element.classList.contains('active')) return;
+    element.classList.remove('active');
+    const wrapper = element.parentElement;
+    const position = wrapper.getBoundingClientRect();
+    const size = {
+        width: window.getComputedStyle(wrapper).width,
+        height: window.getComputedStyle(wrapper).height
+    };
 
-	element.style.top = position.top + 'px';
-	element.style.left = position.left + 'px';
-	element.style.height = size.height;
-	element.style.width = size.width;
-	element.style.zIndex = '0';
+    element.style.top = position.top + 'px';
+    element.style.left = position.left + 'px';
+    element.style.height = size.height;
+    element.style.width = size.width;
+    element.style.zIndex = '0';
 
-	setTimeout(() => {
-		element.style.position = 'static';
-		element.style.transition = null;
-		element.style.left = '0';
-		element.style.top = '0';
-		element.style.width = '100%';
-		element.style.height = '100%';
-	}, 600);
+    setTimeout(() => {
+        element.style.position = 'static';
+        element.style.transition = null;
+        element.style.left = '0';
+        element.style.top = '0';
+        element.style.width = '100%';
+        element.style.height = '100%';
+    }, 600);
 }
 
 let brightness = 100;
 let contrast = 100;
 
 function initButton(button, videoId) {
-	button.addEventListener('click', () => {
-		dispatcher.dispatch({ action: 'collapse', id: videoId });
-	});
+    button.addEventListener('click', () => {
+        dispatcher.dispatch({ action: 'collapse', id: videoId });
+    });
 }
 
 function initButtonBrightness(range, video, values) {
@@ -118,21 +118,21 @@ function initButtonContrast(range, video, values) {
 }
 
 function initVideo(video, url) {
-	video.addEventListener('click', () => {
-		dispatcher.dispatch({ action: 'expand', id: video.id });
-	});
-	if (Hls.isSupported()) {
-		var hls = new Hls();
-		hls.loadSource(url);
-		hls.attachMedia(video);
-		hls.on(Hls.Events.MANIFEST_PARSED, function() {
-			video.play();
-		});
-	} else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-		video.addEventListener('loadedmetadata', function() {
-			video.play();
-		});
-	}
+    video.addEventListener('click', () => {
+        dispatcher.dispatch({ action: 'expand', id: video.id });
+    });
+    if (Hls.isSupported()) {
+        var hls = new Hls();
+        hls.loadSource(url);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function() {
+            video.play();
+        });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.addEventListener('loadedmetadata', function() {
+            video.play();
+        });
+    }
 }
 
 var video1 = document.getElementById('video-1');
@@ -166,8 +166,8 @@ initButtonContrast(document.getElementById('contrast-4'),video4,document.getElem
 
 
 window.onload = () => {
-	const expandedVideo = document.getElementById(expandedVideoId);
-	if (expandedVideo) {
-		expandPlayer(expandedVideo);
-	} 
+    const expandedVideo = document.getElementById(expandedVideoId);
+    if (expandedVideo) {
+        expandPlayer(expandedVideo);
+    } 
 };
